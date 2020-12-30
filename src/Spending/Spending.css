@@ -1,0 +1,66 @@
+#Spending {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#Spending .sp-header {
+
+}
+
+#Spending .sp-header input, #Spending .sp-header button,
+#Spending .sp-header select, #Spending .sp-header textarea  {
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+    line-height: 17px;
+    font-size: 16px;
+}
+
+#Spending .sp-category {
+    width: calc(50% - 10px);    
+}
+
+#Spending .sp-amount {
+    width: calc(30% - 10px); 
+}
+
+#Spending .btn-add {
+    width: calc(20% - 10px);
+    
+}
+.additional-note {
+    width: calc(100% - 10px);
+}
+
+.sp-list {
+    max-width: 910px;
+    margin: 0 auto;
+}
+
+.sp-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    /*border-bottom: 1px solid #ccc;*/
+}
+.sp-item .btn-remove {
+    background-color: crimson;
+    border: 0;
+    font-size: 16px;
+    line-height: 26px;
+    width: 26px;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: indianred 2px 2px 2px;
+}
+.sp-item .btn-remove:hover {
+    box-shadow: none;
+    transition: 0.4s;
+}
+
+.sp-item > div {
+    width: 20%;
+    padding: 5px;
+}
