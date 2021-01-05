@@ -1,14 +1,17 @@
 import { Component } from 'react';
 import './Spending.css';
 
+import Chart from '../Chart/chart';
+
+
 class Spending extends Component {
     constructor(props) {
         super(props);
         this.state = {
             spendings: [
-                { id: 1, category: 'Grocery', amount: 100, dateTime: this.getTime(), note: 'Bought for BirthDay party' },
-                { id: 2, category: 'Carrier', amount: 100, dateTime: this.getTime(), note: '' }
+                ...props.spendings
             ],
+            chartData: props.chartData,
             categories: [
                 { id:'0', name: 'Other'},
                 { id:'1', name: 'Housing', subCategories: [
@@ -41,12 +44,22 @@ class Spending extends Component {
         this.addSpendingHandler = this.addSpendingHandler.bind(this);
     }
 
+    /*static getDerivedStateFromProps(props, state){
+        let amounts =  props.spendings.map(s => s.amount);
+        return {chartData: amounts}
+    }*/
+
     addSpendingHandler = () => {
         if(this.state.newSpending.amount > 0){
             let newSp = this.state.newSpending;
             newSp.dateTime = this.getTime();
 
             let total = this.state.spendings.reduce((total, item) => total + item.amount, 0) + parseInt(this.state.newSpending.amount);
+            
+            let amountArr = this.state.chartData;
+            amountArr.push(parseInt(newSp.amount));
+
+            console.log('chart date: ' + amountArr);
             this.setState({
                 todaysTotal: total,
                 spendings: [
@@ -58,10 +71,10 @@ class Spending extends Component {
                     category: 'Other',
                     amount: '',
                     note: ''
-                }
+                },
+                chartData: amountArr,
             });
         }
-        
     }
 
     selectCategoryHandler = (e) => {
@@ -82,7 +95,10 @@ class Spending extends Component {
         let spendings = [...this.state.spendings];
         spendings.splice(spendingIndex, 1);
 
-        this.setState({spendings: spendings});
+        let newChartData = this.state.chartData;
+        newChartData.splice(spendingIndex,1);
+
+        this.setState({spendings: spendings, chartData: newChartData});
     }
 
     noteHandler = (e) => {
@@ -100,6 +116,7 @@ class Spending extends Component {
     render() {
         return (
             <div id='Spending'>
+                <div id='chart'><Chart data = {this.state.chartData} key = {this.state.chartData}/></div>
               <h2>Today's Spendings (-) {this.state.todaysTotal}</h2>
                 <form  className='sp-header'>
                     <select className='sp-category' required 
