@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import './Spending.css';
+import PropTypes from 'prop-types';
 
+import './Spending.css';
 import Chart from '../Chart/Chart';
 
 
@@ -149,6 +150,11 @@ class Spending extends Component {
         );
     }
   
+}
+
+Spending.propTypes = {
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
 }
 
 export default Spending;

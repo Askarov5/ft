@@ -1,7 +1,8 @@
 //https://codepen.io/maydie/pen/OVmxZZ
 import React from 'react';
-import './Chart.css';
+import PropTypes from 'prop-types';
 
+import './Chart.css';
 import Pie from './Pie';
 
 
@@ -37,5 +38,9 @@ class Chart extends React.Component{
 		);
 	}
 };
+
+Chart.propTypes = {
+	data: PropTypes.arrayOf(PropTypes.number)
+}
 
 export default Chart;
