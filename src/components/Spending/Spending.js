@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './Spending.css';
 
-import Chart from '../Chart/chart';
+import Chart from '../Chart/Chart';
 
 
 class Spending extends Component {

@@ -1,6 +1,6 @@
 //https://codepen.io/maydie/pen/OVmxZZ
 import React from 'react';
-import './chart.css';
+import './Chart.css';
 
 import Pie from './Pie';
 

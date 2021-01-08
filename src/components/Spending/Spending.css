@@ -3,10 +3,6 @@
     margin: 0 auto;
 }
 
-#Spending .sp-header {
-
-}
-
 #Spending .sp-header input, #Spending .sp-header button,
 #Spending .sp-header select, #Spending .sp-header textarea  {
     box-sizing: border-box;
